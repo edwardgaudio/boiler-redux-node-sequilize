@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as CounterActions from '../actions/CounterActions';
 import * as WeatherActions from '../actions/WeatherActions';
-import * as starwarsActions from '../actions/StarwarsActions';
+import * as StarwarsActions from '../actions/StarwarsActions';
 import Counter from '../components/Counter';
 import Weather from './Weather';
 import Starwars from './Starwars';
@@ -17,7 +17,7 @@ import Starwars from './Starwars';
 class App extends Component {
   render() {
     const { forecast, counter, starwarsData, counterActions,
-            weatherActions, starwarsActions
+            weatherActions, starwarsActions,
           } = this.props;
     return (
       <div className="main-app-container">
@@ -64,7 +64,7 @@ function mapDispatchToProps(dispatch) {
   return {
     counterActions: bindActionCreators(CounterActions, dispatch),
     weatherActions: bindActionCreators(WeatherActions, dispatch),
-    starwarsActions: bindActionCreators(starwarsActions, dispatch),
+    starwarsActions: bindActionCreators(StarwarsActions, dispatch),
   };
 }
 
