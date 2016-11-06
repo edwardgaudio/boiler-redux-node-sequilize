@@ -1,7 +1,13 @@
-/**
- * Constants are important - they describe what type of action is performed
- * within your app. Combined with the DevTools/logger, you can see how state and subsequently
- * your UI is being affected.
- */
+
 export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
 export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
+
+export const FETCH_WEATHER = 'FETCH_WEATHER';
+export const LOADING_WEATHER = 'LOADING_WEATHER';
+export const UPDATE_WEATHER = 'UPDATE_WEATHER';
+export const FAIL_WEATHER = 'FAIL_WEATHER';
+
+export const FETCH_STARWARS = 'FETCH_STARWARS';
+export const LOADING_STARWARS = 'LOADING_STARWARS';
+export const UPDATE_STARWARS = 'UPDATE_STARWARS';
+export const FAIL_STARWARS = 'FAIL_STARWARS';

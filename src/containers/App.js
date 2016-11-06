@@ -2,24 +2,29 @@ import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as CounterActions from '../actions/CounterActions';
+import * as WeatherActions from '../actions/WeatherActions';
+import * as starwarsActions from '../actions/StarwarsActions';
 import Counter from '../components/Counter';
-import Footer from '../components/Footer';
+import Weather from './Weather';
+import Starwars from './Starwars';
 
 /**
  * It is common practice to have a 'Root' container/component require our main App (this one).
  * Again, this is because it serves to wrap the rest of our application with the Provider
  * component to make the Redux store available to the rest of the app.
  */
-export default class App extends Component {
+
+class App extends Component {
   render() {
-    // we can use ES6's object destructuring to effectively 'unpack' our props
-    const { counter, actions } = this.props;
+    const { forecast, counter, starwarsData, counterActions,
+            weatherActions, starwarsActions
+          } = this.props;
     return (
       <div className="main-app-container">
         <div className="main-app-nav">Simple Redux Boilerplate</div>
-        {/* notice that we then pass those unpacked props into the Counter component */}
-        <Counter counter={counter} actions={actions} />
-        <Footer />
+        <Counter counter={counter} actions={counterActions} />
+        <Weather forecast={forecast} actions={weatherActions} />
+        <Starwars data={starwarsData} actions={starwarsActions} />
       </div>
     );
   }
@@ -27,7 +32,11 @@ export default class App extends Component {
 
 App.propTypes = {
   counter: PropTypes.number.isRequired,
-  actions: PropTypes.object.isRequired
+  forecast: PropTypes.object.isRequired,
+  starwarsData: PropTypes.object.isRequired,
+  counterActions: PropTypes.object.isRequired,
+  weatherActions: PropTypes.object.isRequired,
+  starwarsActions: PropTypes.object.isRequired,
 };
 
 /**
@@ -37,7 +46,9 @@ App.propTypes = {
  */
 function mapStateToProps(state) {
   return {
-    counter: state.counter
+    counter: state.counter,
+    forecast: state.forecast,
+    starwarsData: state.starwars,
   };
 }
 
@@ -51,7 +62,9 @@ function mapStateToProps(state) {
  */
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(CounterActions, dispatch)
+    counterActions: bindActionCreators(CounterActions, dispatch),
+    weatherActions: bindActionCreators(WeatherActions, dispatch),
+    starwarsActions: bindActionCreators(starwarsActions, dispatch),
   };
 }
 

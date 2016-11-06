@@ -1,21 +1,20 @@
 {
-  "name": "generator-simple-redux",
+  "name": "boilerplate-react_redux_simple",
   "version": "1.0.0",
-  "description": "My simple redux application.",
+  "description": "React/Redux boilerplate, ideal for FE only apps.",
   "scripts": {
-    "clean": "rimraf dist",
     "build:webpack": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
-    "build": "npm run clean && npm run build:webpack",
+    "build": "npm run build:webpack",
     "dev": "NODE_ENV=development npm start",
-    "start": "node devServer.js",
+    "start": "node server/app.js",
     "lint": "eslint src"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tsaiDavid/simple-redux-boilerplate.git"
+    "url": "git+https://github.com/edwardgaudio/simple-redux-boilerplate"
   },
   "license": "MIT",
-  "homepage": "https://github.com/tsaiDavid/simple-redux-boilerplate",
+  "homepage": "https://github.com/edwardgaudio/simple-redux-boilerplate",
   "devDependencies": {
     "autoprefixer": "^6.3.1",
     "babel-core": "^6.3.15",
@@ -37,7 +36,6 @@
     "redux-devtools-dock-monitor": "^1.0.1",
     "redux-devtools-log-monitor": "^1.0.2",
     "redux-logger": "^2.4.0",
-    "rimraf": "^2.4.3",
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.12",
@@ -45,9 +43,12 @@
     "webpack-hot-middleware": "^2.6.0"
   },
   "dependencies": {
-    "react": "^0.14.3",
-    "react-dom": "^0.14.3",
-    "react-redux": "^4.1.1",
+    "axios": "^0.15.2",
+    "classnames": "^2.2.5",
+    "isomorphic-fetch": "^2.2.1",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-redux": "^4.4.5",
     "redux-thunk": "^1.0.3"
   }
 }
